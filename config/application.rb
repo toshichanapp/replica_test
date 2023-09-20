@@ -18,5 +18,13 @@ module ReplicaTest
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # write, readの自動切り替え
+    # https://api.rubyonrails.org/classes/ActiveRecord/Middleware/DatabaseSelector.html
+    config.active_record.database_selector = { delay: 2.seconds }
+    config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
+    config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+    config.eager_load_paths += %W(#{config.root}/app/models/animals)
+    config.autoload_paths += %W(#{config.root}/app/models/animals)
   end
 end

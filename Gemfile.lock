@@ -88,6 +88,8 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.5)
+    get_process_mem (0.2.7)
+      ffi (~> 1.0)
     gimei (1.2.0)
       romaji
     globalid (1.2.1)
@@ -240,6 +242,9 @@ GEM
     unicorn (6.1.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    unicorn-worker-killer (0.4.5)
+      get_process_mem (~> 0)
+      unicorn (>= 4, < 7)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -288,6 +293,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   unicorn
+  unicorn-worker-killer
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
